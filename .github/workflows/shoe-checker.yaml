@@ -2,8 +2,8 @@ name: Shoe Checker Every 30 Min
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Every 30 minutes
-  workflow_dispatch:
+    - cron: "*/10 * * * *"  # Runs every 10 minutes
+  workflow_dispatch: 
 
 jobs:
   check-shoes:

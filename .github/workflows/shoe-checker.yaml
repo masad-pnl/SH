@@ -1,4 +1,4 @@
-name: Shoe Checker Every 30 Min
+name: Shoe Checker Every 10 Min
 
 on:
   schedule:

@@ -25,6 +25,13 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # Install required libraries for Selenium and Chrome
+          sudo apt-get update
+          sudo apt-get install -y wget curl unzip
+          sudo apt-get install -y libx11-xcb1 libgbm1 libxcomposite1 libxdamage1 libxi6 libxrandr2
+          sudo apt-get install -y libnss3 libgdk-pixbuf2.0-0
+          
+          # Install Python dependencies
           python -m pip install --upgrade pip
           pip install selenium webdriver-manager
 

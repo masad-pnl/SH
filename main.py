@@ -54,6 +54,8 @@ def fetch_shoes(url):
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
+    options.add_argument("--disable-software-rasterizer")
+    options.add_argument("--disable-dev-shm-usage")
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     driver.get(url)
@@ -127,7 +129,6 @@ def check_for_new_shoes():
 
 if __name__ == "__main__":
     print("🔍 Shoe availability checker running...\n")
-    delay = 900
     if not os.path.exists(STORAGE_FILE):
         print("🆕 First run detected: Fetching and storing initial shoe list...")
         all_shoes = {}
@@ -139,8 +140,4 @@ if __name__ == "__main__":
         with open(CSV_FILE, "w", newline="") as file:
             csv.writer(file).writerow(["Shoe Name", "Condition", "Price", "Date First Appeared", "Time First Appeared"])
     
-    if is_allowed_time():
-        check_for_new_shoes()
-        print(f"⏳ Waiting for next check in {delay / 3600.} hour(s)...\n")
-    else:
-        print("🌙 Outside allowed hours. Skipping check.")
+    check_for_new_shoes()

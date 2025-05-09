@@ -37,7 +37,7 @@ jobs:
           key: shoes-data
 
       - name: Run shoe checker
-        run: python check_shoes.py
+        run: python main.py
 
       - name: Upload shoe logs
         uses: actions/upload-artifact@v4

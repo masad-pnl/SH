@@ -10,7 +10,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from plyer import notification
 
 # Allowed time ranges (24-hour format)
 MORNING_START = 9   # 07:00 AM
